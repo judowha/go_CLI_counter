@@ -9,5 +9,4 @@ import (
 func main() {
 	inp := parser.ParseInp()
 	fmt.Println(inp)
-
 }
