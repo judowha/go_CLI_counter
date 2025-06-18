@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/judowha/go_CLI_counter.git/parser"
+)
 
 func main() {
-	fmt.Println("test")
+	inp := parser.ParseInp()
+	fmt.Println(inp)
 }
