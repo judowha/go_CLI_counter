@@ -6,29 +6,29 @@ import (
 )
 
 type fileNameList struct {
-	names []string
+	Names []string
 }
 
 func (fList *fileNameList) String() string {
-	return strings.Join(fList.names, " ")
+	return strings.Join(fList.Names, " ")
 }
 
 func (fList *fileNameList) Set(s string) error {
-	fList.names = strings.Split(s, " ")
+	fList.Names = strings.Split(s, " ")
 	return nil
 }
 
 type inpArgs struct {
-	files         fileNameList
-	caseSensitive bool
+	Files fileNameList
+	Case  bool
 }
 
 func ParseInp() inpArgs {
 	var inp inpArgs
-	inp.caseSensitive = *flag.Bool("case-sensitive", false, "flg for case sensitive")
-	flag.Var(&inp.files, "files", "file addresses that separate by space")
+	flag.BoolVar(&inp.Case, "case-sensitive", false, "flg for case sensitive")
+	flag.Var(&inp.Files, "files", "file addresses that separate by space")
 	flag.Parse()
-	if len(inp.files.names) == 0 {
+	if len(inp.Files.Names) == 0 {
 		panic("No File Input!!")
 	}
 	return inp
